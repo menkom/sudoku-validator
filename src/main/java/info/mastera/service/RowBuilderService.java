@@ -31,12 +31,7 @@ public class RowBuilderService {
             return null;
         } else {
             try {
-                var value = Integer.parseInt(element.strip());
-                if (1 <= value && value <= 9) {
-                    return value;
-                } else {
-                    throw new SudokuValidationException("Wrong number `%s`. Only numbers from 1 to 9 are accepted.".formatted(value));
-                }
+               return Integer.parseInt(element.strip());
             } catch (NumberFormatException ex) {
                 throw new SudokuValidationException("Wrong value `%s`. Numbers from 1 to 9 separated with commas are accepted".formatted(element));
             }

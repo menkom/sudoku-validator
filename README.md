@@ -38,4 +38,4 @@ Create a command line tool (running on jvm) for validating a standard 9x9 Sudoku
 4. In task there is no correct info about is this a solution or template that need to be solved. According to this case I think that space or no space between commas means any possible number that need to be solved.
 5. There is no info about mandatory of filename input on application run. For easier testing decided to make `puzzleName.txt` as default filename.
 6. We can build line using String.split() method but after that we have to go through any way... Plus when we have empty element at last position then split method doesn't accept it as element, and we have only 8 elements in a row as a result
-7. 
+7. It is possible to do validation in O(n) but in this case code will lose readability. Yes, we do more work going through elements several times but as result we get descriptive exceptions and easy to read and update code. 

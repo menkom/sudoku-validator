@@ -21,6 +21,8 @@ class RowBuilderServiceTest {
         Assertions.assertEquals(Arrays.asList(null, null), rowBuilderService.split(" ,"));
         Assertions.assertEquals(Arrays.asList(null, null), rowBuilderService.split(" , "));
         Assertions.assertEquals(List.of(1), rowBuilderService.split("1"));
+        Assertions.assertEquals(List.of(23), rowBuilderService.split("23"));
+        Assertions.assertEquals(List.of(1, 10), rowBuilderService.split("1, 10"));
         Assertions.assertEquals(Arrays.asList(1, null), rowBuilderService.split("1,"));
         Assertions.assertEquals(Arrays.asList(1, null), rowBuilderService.split("1, "));
         Assertions.assertEquals(Arrays.asList(1, 1), rowBuilderService.split("1,1"));
@@ -31,7 +33,7 @@ class RowBuilderServiceTest {
     }
 
     @ParameterizedTest
-    @ValueSource(strings = {"2 3","23","2,10","a","_"})
+    @ValueSource(strings = {"2 3", "a", "_"})
     public void testExceptions(String source) {
         Assertions.assertThrows(SudokuValidationException.class, () -> rowBuilderService.split(source));
     }

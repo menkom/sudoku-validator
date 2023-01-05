@@ -21,8 +21,9 @@ public class SudokuValidatorApp {
             var columnUniqueValidator = new ColumnUniqueValidator().setNextValidator(boxUniqueValidator);
             var rowUniqueValidator = new RowUniqueValidator()
                     .setNextValidator(columnUniqueValidator);
+            var elementRangeValidator = new ElementRangeValidator().setNextValidator(rowUniqueValidator);
             var columnNumberValidator = new ColumnNumberValidator()
-                    .setNextValidator(rowUniqueValidator);
+                    .setNextValidator(elementRangeValidator);
             var rowNumberValidator = new RowNumberValidator()
                     .setNextValidator(columnNumberValidator);
 
